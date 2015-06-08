@@ -21,10 +21,7 @@ class LocationsController < ApplicationController
   end
   def create
   	@location = Location.new(location_params)
-      uploaded_io = params[:location][:file]
-      File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
-          file.write(uploaded_io.original_filename) 
-      end
+      
    
     if @location.save
   	redirect_to @location
