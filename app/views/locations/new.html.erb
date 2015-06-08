@@ -1,0 +1,37 @@
+<h1>New Location</h1>
+<%= form_for :location, url: locations_path do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :picture %><br>
+    <%= f.text_area :picture %>
+  </p>
+  <p>
+    <%= f.label :address %><br>
+    <%= f.text_area :address %>
+  </p>
+  <p>
+    <%= f.label :phone %><br>
+    <%= f.text_area :phone %>
+  </p>
+  <p>
+    <%= f.label :person1 %><br>
+    <%= f.text_area :person1 %>
+  </p>
+  <p>
+    <%= f.label :type %><br>
+    <%= f.text_area :type %>
+  </p>
+
+ <%= form_for @location do |f| %>
+  <%= f.file_field :file %>
+   <%= f.submit %>
+  <% end %>
+  <p>
+   
+  </p>
+  <%= link_to 'Back', locations_path %>
+<% end %>

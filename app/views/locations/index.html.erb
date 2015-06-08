@@ -1,0 +1,48 @@
+<div id = "logindiv" class = "container">
+<% if user_signed_in? %>
+ <%= link_to 'Logout', destroy_user_session_path, :method => :delete, id: 'login', class: 'btn outline btn-primary outline'%>
+<% else %>
+ <%= link_to 'Login', new_user_session_path, id: 'login', class: 'btn outline btn-primary outline'%>
+
+ <% end %>
+ </div> 
+
+<h1 id = "title">Listing Locations</h1>
+
+<% if user_signed_in? %> 
+<%= link_to 'New Location', new_location_path, class: 'btn raised btn-success btn-lg' %>
+<% end %>
+<div id ="table" class = "container">
+<table class = "table table-bordered table-hover">
+	<tr>
+		<th> Name </th>
+		<th> Address </th>
+		<th> Type </th>
+		<th> Phone </th>
+		<th> Person1 </th>
+		<% if user_signed_in? %> 
+			<th> Actions </th>
+		<% end %>
+	</tr>
+
+	<% @locations.each do |location| %>
+		<tr class= "active">
+			<td class = "col-md-1"  data-link="<%= location_path(location) %>"> <%= location.title %> </td>
+			<td class = "col-md-3"  data-link="<%= location_path(location) %>"> <%= location.address %> </td>
+			<td class = "col-md-1"  data-link="<%= location_path(location) %>"> <%= location.type %> </td>
+			<td class = "col-md-1"  data-link="<%= location_path(location) %>"> <%= location.phone %> </td>
+			<td class = "col-md-1"  data-link="<%= location_path(location) %>"> <%= location.person1 %> </td>
+			<% if user_signed_in? %>
+				<td id ="editCol" class = "col-md-1"> 
+				 
+				 <%= link_to 'Edit', edit_location_path(location) %>
+				 <%= link_to 'Delete', location_path(location),
+              		method: :delete,
+              		data: { confirm: 'Are you sure?' } %>
+				 </td>
+				 <% end %>
+		</tr>
+	<% end %>
+</table>
+
+</div>

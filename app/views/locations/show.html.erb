@@ -1,0 +1,22 @@
+<%= image_tag(@location.picture) %>
+<div id ="table" class = "container">
+<table class = "table table-bordered table-hover">
+	<tr>
+		<th> <%= @location.title %> </th>
+		<th> <%= @location.address %> </th>
+		<th> <%= @location.type %> </th>
+	</tr>
+	<tr>
+		<th> <%= @location.phone %> </th>
+		<th> Person: <%= @location.person1 %> </th>
+	</tr>
+</table>
+</div>
+<h2>Notes</h2>
+<%= render @location.notes %>
+
+<h2>Add a note: </h2>
+<%= render 'notes/form' %>
+
+<%= link_to 'Show', edit_location_path(@location), class: 'btn sharp btn-primary btn-xs' %>
+<%= link_to 'Back', locations_path, class: 'btn sharp btn-primary btn-xs' %>

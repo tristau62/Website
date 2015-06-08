@@ -1,0 +1,18 @@
+<p>
+  <strong>Owner:</strong>
+  <%= note.owner %>
+</p>
+ 
+<p>
+  <strong>Note:</strong>
+  <%= note.body %>
+</p>
+<p>
+  <strong>Time:</strong>
+  <%= local_time(note.created_at.strftime("%H:%M")) %>
+</p>
+<p>
+  <%= link_to 'Delete Note', [note.location, note],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
