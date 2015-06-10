@@ -1,5 +1,20 @@
 <h1>New Location</h1>
 <%= form_for :location, url: locations_path do |f| %>
+  <% if @location.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@location.errors.count, "error") %> prohibited
+        this location from being saved:
+      </h2>
+      <ul>
+        <% @location.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -14,8 +29,8 @@
     <%= f.text_area :address %>
   </p>
   <p>
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
+    <%= f.label :phone1 %><br>
+    <%= f.text_field :phone1 %>
   </p>
   <p>
     <%= f.label :person1 %><br>
@@ -35,5 +50,5 @@
   <p>
    
   </p>
-  <%= link_to 'Back', locations_path %>
+  <%= link_to 'Locations', locations_path %>
 <% end %>

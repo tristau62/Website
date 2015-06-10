@@ -16,6 +16,7 @@ th {
 }
 #title {
 	margin-top: 15px;
+    color: #03A3A3;
 }
 #logindiv {
 	margin-bottom: 10px;
@@ -47,16 +48,16 @@ p, div, h2, h3, h4, h5, h6 {
 }
  
 .btn-primary {
-    background: #0099cc;
+    background: #ffa500;
     color: #ffffff;
 }
  
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: #33a6cc;
+    background: #ffa500;
 }
  
 .btn-primary:active, .btn-primary.active {
-    background: #007299;
+    background: #ffa500;
     box-shadow: none;
 }
 
@@ -65,13 +66,13 @@ p, div, h2, h3, h4, h5, h6 {
     padding: 12px 22px;
 }
 .btn-primary.outline {
-    border: 2px solid #0099cc;
-    color: #0099cc;
+    border: 2px solid #ffa500;
+    color: #ffa500;
 }
 
 .btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
-    color: #33a6cc;
-    border-color: #33a6cc;
+    color: #226666;
+    border-color: #226666;
 }
 .btn-primary.outline:active, .btn-primary.outline.active {
     border-color: #007299;
@@ -88,14 +89,17 @@ p, div, h2, h3, h4, h5, h6 {
 }
 
 .btn.raised {
-    box-shadow: 0 3px 0 0 #007299;
+    box-shadow: 0 3px 0 0 #FF7400;
+    background: #FF7400;
+    color: #fff;
 }
 
 .btn.raised:active, .btn-primary.raised.active {
-    background: #33a6cc;
+    background: #FF7400;
     box-shadow: none;
     margin-bottom: -3px;
     margin-top: 3px;
+    color: #FFF;
 }
 td:hover {
     cursor: pointer;
@@ -120,7 +124,7 @@ table {
 }   
 
 th {
-    background: url(http://jackrugile.com/images/misc/noise-diagonal.png), linear-gradient(#777, #444);
+    background: url(http://jackrugile.com/images/misc/noise-diagonal.png), linear-gradient(#03A3A3, #03A3A3);
     border-left: 1px solid #555;
     border-right: 1px solid #777;
     border-top: 1px solid #555;
@@ -162,6 +166,7 @@ td {
     padding: 10px 15px;
     position: relative;
     transition: all 300ms;
+    color: #078282;
 }
 
 td:first-child {
@@ -171,6 +176,10 @@ td:first-child {
 td:last-child {
     border-right: 1px solid #e8e8e8;
     box-shadow: inset -1px 0 0 #fff;
+
+}
+table, th, td {
+   border: 5px solid black;
 }   
 
 tr {
@@ -221,7 +230,7 @@ tbody:hover tr:hover td {
     height:0;
     display:block;
     content:" ";
-    border-color:transparent;
+    border-color: black;
     border-style:solid solid outset;
     pointer-events:none;
 }

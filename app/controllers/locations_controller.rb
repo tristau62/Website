@@ -21,12 +21,17 @@ class LocationsController < ApplicationController
   end
   def create
   	@location = Location.new(location_params)
+    
+    phoneString = params[:location][:phone1]
+    @location.phone1 = phoneString.gsub(/[^0-9]/, '')
+
+
     uploaded_io = params[:location][:file]
-   
-    File.open(Rails.root.join('public', uploaded_io.original_filename), 'wb') do |file|
-      file.write(uploaded_io.read)
+    if (!uploaded_io.nil?)
+            File.open(Rails.root.join('public', uploaded_io.original_filename), 'wb') do |file|
+              file.write(uploaded_io.read)
+        end
     end
-   
     if @location.save
   	redirect_to @location
   	else
@@ -54,6 +59,6 @@ class LocationsController < ApplicationController
   end
    private
   	def location_params
-  		params.require(:location).permit(:title, :picture, :address, :phone, :person1, :type)
+  		params.require(:location).permit(:title, :picture, :address, :phone1, :person1, :type)
   	end
 end
