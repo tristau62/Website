@@ -7,7 +7,7 @@
  
   <p>
     <%= f.label :picture %><br>
-    <%= f.text_area :picture %>
+    <%= f.text_field :picture %>
   </p>
   <p>
     <%= f.label :address %><br>
@@ -15,17 +15,20 @@
   </p>
   <p>
     <%= f.label :phone %><br>
-    <%= f.text_area :phone %>
+    <%= f.text_field :phone %>
   </p>
   <p>
     <%= f.label :person1 %><br>
-    <%= f.text_area :person1 %>
+    <%= f.text_field :person1 %>
   </p>
   <p>
     <%= f.label :type %><br>
-    <%= f.text_area :type %>
+    <%= f.text_field :type %>
   </p>
-
+  <p>
+    <%= f.file_field :file %><br>
+    
+  </p>
  
    <%= f.submit %>
   

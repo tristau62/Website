@@ -2,13 +2,13 @@
 <div id ="table" class = "container">
 <table class = "table table-bordered table-hover">
 	<tr>
-		<th> <%= @location.title %> </th>
-		<th> <%= @location.address %> </th>
-		<th> <%= @location.type %> </th>
+		<td> <%= @location.title %> </th>
+		<td> <%= @location.address %> </th>
+		<td> <%= @location.type %> </th>
 	</tr>
 	<tr>
-		<th> <%= @location.phone %> </th>
-		<th> Person: <%= @location.person1 %> </th>
+		<td> <%= @location.phone %> </th>
+		<td> Person: <%= @location.person1 %> </th>
 	</tr>
 </table>
 </div>
@@ -19,4 +19,4 @@
 <%= render 'notes/form' %>
 
 <%= link_to 'Show', edit_location_path(@location), class: 'btn sharp btn-primary btn-xs' %>
-<%= link_to 'Back', locations_path, class: 'btn sharp btn-primary btn-xs' %>
+<%= link_to 'Locations', locations_path, class: 'btn sharp btn-primary btn-xs' %>

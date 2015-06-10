@@ -21,7 +21,11 @@ class LocationsController < ApplicationController
   end
   def create
   	@location = Location.new(location_params)
-      
+    uploaded_io = params[:location][:file]
+   
+    File.open(Rails.root.join('public', uploaded_io.original_filename), 'wb') do |file|
+      file.write(uploaded_io.read)
+    end
    
     if @location.save
   	redirect_to @location
@@ -29,19 +33,6 @@ class LocationsController < ApplicationController
   		render 'new'
     end
   end
-  #def upload
-    #uploaded_io = params[:location][:ourFile]
-   
-    #File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
-    #  file.write(uploaded_io.read)
-    #end
- # end
-  def upload
-     uploaded_io = params[:file]
-      File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
-          file.write(uploaded_io.original_filename) 
-      end
-    end
   def update
       @location = Location.find(params[:id])
  

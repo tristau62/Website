@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+	Location.create(title: 'Digital Insurance Corporate Office', picture: 'http://longislandwindowcleaning.net/wp-content/uploads/2014/10/glass-box.jpg', address: '400 Galleria Parkway 
+Suite 300 Atlanta, GA 30339', person1: 'aPerson', type: 'Corporate Office' )
