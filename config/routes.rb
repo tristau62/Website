@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   resources :locations do
     resources :notes
+    get :autocomplete_location_title, :on => :collection
   end
+
+    
+  
   root 'locations#index'
 
   # Example of regular route:

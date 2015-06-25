@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  autocomplete :location, :title
   def index
   	@locations = Location.all
   end
@@ -59,6 +60,6 @@ class LocationsController < ApplicationController
   end
    private
   	def location_params
-  		params.require(:location).permit(:title, :picture, :address, :phone1, :person1, :type)
+  		params.require(:location).permit(:title, :picture, :address, :phone1, :person1, :type, :zip, :city, :state)
   	end
 end

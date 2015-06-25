@@ -1,3 +1,6 @@
+
+
+
 <div id = "logindiv" class = "container">
 <% if user_signed_in? %>
  <%= link_to 'Logout', destroy_user_session_path, :method => :delete, id: 'login', class: 'btn outline btn-primary outline'%>
@@ -5,18 +8,27 @@
  <%= link_to 'Login', new_user_session_path, id: 'login', class: 'btn outline btn-primary outline'%>
 
  <% end %>
+ 
  </div> 
 
 <h1 id = "title">Listing Locations</h1>
 
 <% if user_signed_in? %> 
-<%= link_to 'New Location', new_location_path, class: 'btn raised btn-lg' %>
+<%= link_to 'New Location', new_location_path, class: 'btn raised btn-lg' %> </br>
+</br>
 <% end %>
+<%= form_for :location do |f| %>
+	<%= f.autocomplete_field :location_title, autocomplete_location_title_locations_path %>
+	<% f.label :title %>
+<% end %>
+
 <div id ="table" class = "container">
 <table class = "table table-bordered table-hover">
 	<tr>
 		<th> Name </th>
-		<th> Address </th>
+		<th> City </th>
+		<th> State </th>
+		<th> Zip </th>
 		<th> Type </th>
 		<th> Phone </th>
 		<th> Person1 </th>
@@ -28,7 +40,9 @@
 	<% @locations.each do |location| %>
 		<tr class= "active">
 			<td class = "col-md-1"  data-link="<%= location_path(location) %>"> <%= location.title %> </td>
-			<td class = "col-md-3"  data-link="<%= location_path(location) %>"> <%= location.address %> </td>
+			<td class = "col-md-1"  data-link="<%= location_path(location) %>"> <%= location.city %> </td>
+			<td class = "col-md-1"  data-link="<%= location_path(location) %>"> <%= location.state %> </td>
+			<td class = "col-md-1"  data-link="<%= location_path(location) %>"> <%= location.zip %> </td>
 			<td class = "col-md-1"  data-link="<%= location_path(location) %>"> <%= location.type %> </td>
 			<td class = "col-md-1"  data-link="<%= location_path(location) %>"> <%= number_to_phone(location.phone1, area_code: true) %> </td>
 			<td class = "col-md-1"  data-link="<%= location_path(location) %>"> <%= location.person1 %> </td>
