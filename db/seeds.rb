@@ -2,8 +2,8 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 # Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+
+##   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 	Location.create!(title: 'Digital Insurance Corporate Office', picture: 'http://longislandwindowcleaning.net/wp-content/uploads/2014/10/glass-box.jpg', city: 'Atlanta', zip: '30339', state: 'GA', phone1: '(770) 250-2990', person1: 'aPerson', type: 'Corporate Office', address: '400 Galleria Parkway Atlanta, GA 30339' )
 	Location.create!(title: 'Scottsdale', picture: 'http://longislandwindowcleaning.net/wp-content/uploads/2014/10/glass-box.jpg', city: 'Scottsdale', zip: '85255', state: 'AZ', phone1: '6025951611', person1: 'J White', type: 'Corporate Office', address: '17015 N Scottsdale Rd Scottsdale, AZ 85255' )
