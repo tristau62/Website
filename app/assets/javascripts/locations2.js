@@ -29,6 +29,8 @@
     });
   });
   */
-  $("#location_location_title").bind('railsAutocomplete.select', function(event, data){
-      window.location.href = /locations
+  $(function() {
+  return $(document).on('click', 'td[data-link]', function(evt) {
+    return window.location = this.dataset.link;
   });
+});
