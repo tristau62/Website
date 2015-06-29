@@ -48,7 +48,7 @@
 			<td class = "col-md-1"  data-link="<%= location_path(location) %>"> <%= location.person1 %> </td>
 			<% if user_signed_in? %>
 				<td id ="editCol" class = "col-md-1"> 
-				 
+				 <%= link_to 'Show', location_path(location) %>
 				 <%= link_to 'Edit', edit_location_path(location) %>
 				 <%= link_to 'Delete', location_path(location),
               		method: :delete,
