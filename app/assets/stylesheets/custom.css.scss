@@ -139,6 +139,7 @@ th {
     text-shadow: 0 1px 0 #000;  
 }
 
+
 th:after {
     //background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
     content: '';
@@ -204,6 +205,7 @@ tr:last-of-type td:last-child {
     box-shadow: inset -1px -1px 0 #fff;
 }   
 
+/*
 tbody:hover td {
     color: transparent;
     text-shadow: 0 0 3px #aaa;
@@ -213,6 +215,7 @@ tbody:hover tr:hover td {
     color: #444;
     text-shadow: 0 1px 0 #fff;
 }
+*/
 #exclude {
     cursor: auto;
 }
@@ -306,5 +309,46 @@ ul.ui-autocomplete {
     background-image: none;
 }
 .ui-autocomplete { height: 100px; overflow-y: scroll; overflow-x: hidden;}
+
+.tablesorter .header,
+.tablesorter .tablesorter-header {
+    /* black (unsorted) double arrow */
+    background-image: url(data:image/gif;base64,R0lGODlhFQAJAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
+    /* white (unsorted) double arrow */
+    /* background-image: url(data:image/gif;base64,R0lGODlhFQAJAIAAAP///////yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==); */
+    /* image */
+    /* background-image: url(/assets/jquery-tablesorter/black-unsorted.gif); */
+    background-color: #078282;
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding: 4px 18px 4px 4px;
+    white-space: normal;
+    cursor: pointer;
+}
+.tablesorter .headerSortUp,
+.tablesorter .tablesorter-headerSortUp,
+.tablesorter .tablesorter-headerAsc {
+    
+    /* black asc arrow */
+    background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjI8Bya2wnINUMopZAQA7);
+    /* white asc arrow */
+    /* background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAAP///////yH5BAEAAAEALAAAAAAVAAQAAAINjI8Bya2wnINUMopZAQA7); */
+    /* image */
+    /* background-image: url(/assets/jquery-tablesorter/black-asc.gif); */
+}
+.tablesorter .headerSortDown,
+.tablesorter .tablesorter-headerSortDown,
+.tablesorter .tablesorter-headerDesc {
+    
+    /* black desc arrow */
+    background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjB+gC+jP2ptn0WskLQA7);
+    /* white desc arrow */
+    /* background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAAP///////yH5BAEAAAEALAAAAAAVAAQAAAINjB+gC+jP2ptn0WskLQA7); */
+    /* image */
+    /* background-image: url(/assets/jquery-tablesorter/black-desc.gif); */
+}
+
+
+
 
 

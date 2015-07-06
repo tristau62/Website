@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require autocomplete-rails
+//= require jquery-tablesorter
 
 //= require turbolinks
 //= require bootstrap-sprockets

@@ -48,3 +48,5 @@ gem 'rails_12factor', group: :production
 
 gem 'jquery-ui-rails'
 gem 'rails4-autocomplete'
+
+gem 'jquery-tablesorter'

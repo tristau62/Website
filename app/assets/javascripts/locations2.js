@@ -34,3 +34,11 @@
     return window.location = this.dataset.link;
   });
 });
+  $(document).ready(function() 
+    { 
+        $("#myTable").tablesorter( 
+            {sortList: [[0, 0]]}
+
+            ); 
+    } 
+); 
