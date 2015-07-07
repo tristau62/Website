@@ -1,12 +1,29 @@
 class LocationsController < ApplicationController
   autocomplete :location, :title
+  
   def index
-  	@locations = Location.all
-    if params[:search]
-        @locations = Location.search(params[:search].order"created_at DESC")
+  	myString = Rails.application.config.myVar
+    #locations = Location.all
+    
+    @locations = Location.where('title ILIKE ?', "%" + myString + "%").all
+    
+    
+  end
+  def search
+    searchString = params[:location][:search]
+    Rails.application.config.myVar = searchString
+    #redirect_to locations_path
+    @location = Location.find_by title:  searchString
+    if @location.nil?
+      
+      redirect_to locations_path
     else
-        @locations = Location.all.order('created_at DESC')
+      redirect_to @location
     end
+  end
+  def reset
+    Rails.application.config.myVar = ''
+    redirect_to locations_path
   end
   def show
   	@location = Location.find(params[:id])

@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'locations/index'
+  post 'locations/search'
+  post 'locations/reset'
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   resources :locations do
+    get 'search'
     resources :notes
     get :autocomplete_location_title, :on => :collection
+
   end
 
     

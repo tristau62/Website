@@ -17,10 +17,22 @@
 <%= link_to 'New Location', new_location_path, class: 'btn raised btn-lg' %> </br>
 </br>
 <% end %>
-<%= form_for :location do |f| %>
+<%= form_for :location, url: {action: "search"}  do |f| %>
 	<%= f.autocomplete_field :search, autocomplete_location_title_locations_path %>
-	<%= submit_tag "search", :name => nil %>
 	
+	<%= submit_tag "search" %> </br>
+	
+<% end %>
+<% if Rails.application.config.myVar != '' %> 
+ <p>
+ Search Filter: 
+<%= Rails.application.config.myVar%>
+</p>
+<%= form_for :location, url: {action: "reset"}  do |f| %>
+	
+	
+	<%= submit_tag "reset filter" %> 
+<% end %>
 <% end %>
 
 <div id ="table" class = "container">
