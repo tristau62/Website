@@ -1,0 +1,57 @@
+<div id = "logindiv" class = "container">
+<%= link_to 'Locations', locations_path, id: 'switch', class: 'btn outline btn-primary outline'%>
+<% if user_signed_in? %>
+ <%= link_to 'Logout', destroy_user_session_path, :method => :delete, id: 'login', class: 'btn outline btn-primary outline'%>
+<% else %>
+ <%= link_to 'Login', new_user_session_path, id: 'login', class: 'btn outline btn-primary outline'%>
+
+ <% end %>
+ 
+ </div> 
+
+<h1 id = "title">Listing Circuits</h1>
+
+<% if user_signed_in? %> 
+<%= link_to 'New Circuit', circuits_hello_path, class: 'btn raised btn-lg' %> </br>
+<%= link_to 'Locations', new_circuit_path, id: 'switch', class: 'btn outline btn-primary outline'%>
+</br>
+<% end %>
+
+<div id ="table" class = "container">
+<table class = "table table-bordered table-hover tablesorter" id ="myTable">
+	<thead>
+	<tr>
+		<th> Carrier </th>
+		<th> Class </th>
+		<th> Contract </th>
+		<th> Purpose </th>
+		<th> Expiration </th>
+		<th> Rate </th>
+		<% if user_signed_in? %>
+ 			<th> Actions </th>
+		<% end %>
+	</tr>
+	</thead>
+	<tbody>
+	<% @circuits.each do |circuit| %>
+		
+		<tr class= "active">
+			<td class = "col-md-1"  data-link="<%= circuit_path(circuit) %>"> <%= circuit.carrier %> </td>
+			<td class = "col-md-1"  data-link="<%= circuit_path(circuit) %>"> <%= circuit.class %> </td>
+			<td class = "col-md-1"  data-link="<%= circuit_path(circuit) %>"> <%= circuit.contract %> </td>
+			<td class = "col-md-1"  data-link="<%= circuit_path(circuit) %>"> <%= circuit.purpose %> </td>
+			<td class = "col-md-1"  data-link="<%= circuit_path(circuit) %>"> <%= circuit.expiration %> </td>
+			<td class = "col-md-1"  data-link="<%= circuit_path(circuit) %>"> <%= circuit.rate %> </td>
+			<% if user_signed_in? %>
+				<td id ="editCol" class = "col-md-1"> 
+				 
+				 <%= link_to 'Edit', edit_circuit_path(circuit) %>
+				 <%= link_to 'Delete', circuit_path(circuit),
+              		method: :delete,
+              		data: { confirm: 'Are you sure?' } %>
+				 </td>
+				 <% end %>
+		</tr>
+	<% end %>
+	</tbody>
+</table>

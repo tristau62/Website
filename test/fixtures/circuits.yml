@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  carrier: MyString
+  class: MyString
+  contract: MyString
+  purpose: MyString
+  expiration: MyString
+
+two:
+  carrier: MyString
+  class: MyString
+  contract: MyString
+  purpose: MyString
+  expiration: MyString

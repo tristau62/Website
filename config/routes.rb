@@ -3,12 +3,16 @@ Rails.application.routes.draw do
   get 'locations/index'
   post 'locations/search'
   post 'locations/reset'
-  
+
+  get 'circuits/index'
+  get 'circuits/hello'
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+  resources :circuits
   resources :locations do
     get 'search'
     resources :notes

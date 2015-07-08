@@ -1,7 +1,5 @@
-
-
-
 <div id = "logindiv" class = "container">
+ <%= link_to 'Circuits', circuits_path, id: 'switch', class: 'btn outline btn-primary outline'%>
 <% if user_signed_in? %>
  <%= link_to 'Logout', destroy_user_session_path, :method => :delete, id: 'login', class: 'btn outline btn-primary outline'%>
 <% else %>

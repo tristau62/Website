@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611191746) do
+ActiveRecord::Schema.define(version: 20150707194756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "circuits", force: true do |t|
+    t.string   "carrier"
+    t.string   "class"
+    t.string   "contract"
+    t.string   "purpose"
+    t.string   "expiration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "locations", force: true do |t|
     t.string   "title"
