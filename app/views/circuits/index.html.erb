@@ -12,9 +12,7 @@
 <h1 id = "title">Listing Circuits</h1>
 
 <% if user_signed_in? %> 
-<%= link_to 'New Circuit', circuits_hello_path, class: 'btn raised btn-lg' %> </br>
-<%= link_to 'Locations', new_circuit_path, id: 'switch', class: 'btn outline btn-primary outline'%>
-</br>
+<%= link_to 'New Circuit', new_circuit_path, class: 'btn raised btn-lg' %> </br>
 <% end %>
 
 <div id ="table" class = "container">

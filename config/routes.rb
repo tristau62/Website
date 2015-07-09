@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   resources :circuits
+
+  
   resources :locations do
     get 'search'
     resources :notes
