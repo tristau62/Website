@@ -11,19 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707194756) do
+ActiveRecord::Schema.define(version: 20150717192748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "circuits", force: true do |t|
     t.string   "carrier"
-    t.string   "class"
+    t.string   "class1"
     t.string   "contract"
     t.string   "purpose"
     t.string   "expiration"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+  end
+
+  create_table "documents", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "circuit_id"
+    t.string   "name"
   end
 
   create_table "locations", force: true do |t|

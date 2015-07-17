@@ -50,3 +50,5 @@ gem 'jquery-ui-rails'
 gem 'rails4-autocomplete'
 
 gem 'jquery-tablesorter'
+
+gem "paperclip", "~> 4.3"

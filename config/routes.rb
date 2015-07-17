@@ -5,15 +5,17 @@ Rails.application.routes.draw do
   post 'locations/reset'
 
   get 'circuits/index'
-  get 'circuits/hello'
-
+  post 'circuits/search'
+  post 'circuits/reset'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  resources :circuits
-
+  resources :circuits do
+    get :autocomplete_circuit_carrier, :on => :collection
+    resources :documents
+  end
   
   resources :locations do
     get 'search'

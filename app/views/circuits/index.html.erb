@@ -13,18 +13,31 @@
 
 <% if user_signed_in? %> 
 <%= link_to 'New Circuit', new_circuit_path, class: 'btn raised btn-lg' %> </br>
+</br
+><% end %>
+<%= form_for :circuit, url: {action: "search"}  do |f| %>
+	<%= f.autocomplete_field :search, autocomplete_circuit_carrier_circuits_path %> 
+	
+	<%= submit_tag "search" %> </br>
+	
 <% end %>
+<% if Rails.application.config.myVar != '' %> 
+ <p>
+ Search Filter: 
+<%= Rails.application.config.myVar%>
+</p>
+<%= form_for :circuit, url: {action: "reset"}  do |f| %>
 
+	<%= submit_tag "reset filter" %> 
+<% end %>
+<% end %>
 <div id ="table" class = "container">
 <table class = "table table-bordered table-hover tablesorter" id ="myTable">
 	<thead>
-	<tr>
-		<th> Carrier </th>
-		<th> Class </th>
+	<tr><th> Carrier </th>
 		<th> Contract </th>
 		<th> Purpose </th>
 		<th> Expiration </th>
-		<th> Rate </th>
 		<% if user_signed_in? %>
  			<th> Actions </th>
 		<% end %>
@@ -35,11 +48,9 @@
 		
 		<tr class= "active">
 			<td class = "col-md-1"  data-link="<%= circuit_path(circuit) %>"> <%= circuit.carrier %> </td>
-			<td class = "col-md-1"  data-link="<%= circuit_path(circuit) %>"> <%= circuit.class %> </td>
 			<td class = "col-md-1"  data-link="<%= circuit_path(circuit) %>"> <%= circuit.contract %> </td>
 			<td class = "col-md-1"  data-link="<%= circuit_path(circuit) %>"> <%= circuit.purpose %> </td>
 			<td class = "col-md-1"  data-link="<%= circuit_path(circuit) %>"> <%= circuit.expiration %> </td>
-			<td class = "col-md-1"  data-link="<%= circuit_path(circuit) %>"> <%= circuit.rate %> </td>
 			<% if user_signed_in? %>
 				<td id ="editCol" class = "col-md-1"> 
 				 

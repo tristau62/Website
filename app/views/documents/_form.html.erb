@@ -1,0 +1,6 @@
+<%= form_for([@circuit, @circuit.documents.build]) do |f| %>
+  <p> 
+    <%= f.file_field :file %>    
+    <%= f.submit %>
+  </p>
+<% end %>

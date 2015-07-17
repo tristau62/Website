@@ -10,11 +10,14 @@
 	<tr>
 		<td> <%= @circuit.purpose %> </th>
 		<td> <%= @circuit.expiration %> </th>
-		<td> <%= @circuit.rate %> </th>
+		<td> <%= @circuit.class1 %> </th>
 	</tr>
 </table>
 </div>
+<h2>Documents</h2>
 
+<h2>Add a document </h2>
+<%= render 'documents/form' %>
 
 <%= link_to 'Show', edit_circuit_path(@circuit), class: 'btn sharp btn-primary btn-xs' %>
 <%= link_to 'Circuits', circuits_path, class: 'btn sharp btn-primary btn-xs' %>

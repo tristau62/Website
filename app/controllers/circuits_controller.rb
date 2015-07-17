@@ -1,18 +1,37 @@
 class CircuitsController < ApplicationController
-	def index
-		@circuits = Circuit.all
+	autocomplete :circuit, :carrier
+  def index
+		#@circuits = Circuit.all
+    myString = Rails.application.config.myVar
+    @circuits = Circuit.where('carrier ILIKE ?', "%" + myString + "%").all
 	end
-	def show
+	def search
+    searchString = params[:circuit][:search]
+    Rails.application.config.myVar = searchString
+    #redirect_to circuits_path
+    @circuit = Circuit.find_by carrier:  searchString
+    if @circuit.nil?
+      
+      redirect_to circuits_path
+    else
+      redirect_to @circuit
+    end
+  end
+  def reset
+    Rails.application.config.myVar = ''
+    redirect_to circuits_path
+  end
+  def show
   		@circuit = Circuit.find(params[:id])
   	end
   def new
   		@circuit = Circuit.new
-  	end
+  end
   def edit 
   	if(!user_signed_in)
   		redirect_to new_user_session_path
     else
-      	@location = Location.find(params[:id])
+      	@circuit = Circuit.find(params[:id])
     end
   end
   def create
