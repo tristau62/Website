@@ -16,6 +16,7 @@
 //= require autocomplete-rails
 //= require jquery-tablesorter
 
+
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .

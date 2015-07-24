@@ -1,27 +1,26 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Currently, the devise is only configured to hide certain features to users who are
+not logged in. It will allow anyone to make an account and sign in. This will need 
+to be changed eventually to have some kind of hierarchy of who is able to edit 
+and add documents.
 
-Things you may want to cover:
+Right now, the documents attached to the circuits are only being saved to the public file 
+system. File associations with individual circuits need to be saved in the database
+so the circuits can have their own documents. I have installed paper clip to accomplish this but 
+have not taken advantge of all of its features.
 
-* Ruby version
+Currently, there is also an issue with the database on heroku that I have been working
+on to try to sort out. If the issue is too hard to fix, I do think reverting back to the commit 
+titled "circuits" would fix the issue. I have been storing the commits on this repo:
+https://github.com/tristau62/Website. I have been hosting through heroku which requires 
+using a postgres database.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The plan going forward on this website was to have circuits, equipment, locations, and people as
+sepearte pages and tables. There would be associations between these 4 categories. For example, 
+a location can have x amount of circuits, equipement, and people. From the view of an individual
+category, you should be able to see the associations of that category and be able to link
+to the other ones.
 
 
 Please feel free to use a different markup language if you do not plan to run

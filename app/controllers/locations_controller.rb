@@ -1,18 +1,21 @@
 class LocationsController < ApplicationController
+  #autocomplete only on the title of the locations
   autocomplete :location, :title
   
   def index
-  	myString = Rails.application.config.myVar
-    #locations = Location.all
-    
+  	#Takes the value inputted from search and filters @locations based on it
+    #manipulates the @locations array to be filtered
+    myString = Rails.application.config.myVar
     @locations = Location.where('title ILIKE ?', "%" + myString + "%").all
     
     
   end
   def search
+    #takes a string from filter box and checks to see if any of the locations
+    #have the exact name of a location. If so, the filter goes straight there.
+    #Otherwise, the page redirects back to itself for a filtered index
     searchString = params[:location][:search]
     Rails.application.config.myVar = searchString
-    #redirect_to locations_path
     @location = Location.find_by title:  searchString
     if @location.nil?
       
@@ -22,6 +25,7 @@ class LocationsController < ApplicationController
     end
   end
   def reset
+    #Used to reset the global filter string var
     Rails.application.config.myVar = ''
     redirect_to locations_path
   end
@@ -44,11 +48,12 @@ class LocationsController < ApplicationController
   end
   def create
   	@location = Location.new(location_params)
-    
+    #String clean up for phone numbers
     phoneString = params[:location][:phone1]
     @location.phone1 = phoneString.gsub(/[^0-9]/, '')
 
-
+    #Looks for a file upload, and it saves in the 
+    #public folder if there is one
     uploaded_io = params[:location][:file]
     if (!uploaded_io.nil?)
             File.open(Rails.root.join('public', uploaded_io.original_filename), 'wb') do |file|
